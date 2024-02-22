@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Validation Form</title>
+<style>
+    .error {
+        color: red;
+    }
+	*{
+	   width:100%;
+	  height:auto;
+	  font-family:Georgia;	  
+
+ }
+ 
+.header{
+	width:100%;
+	height:300px;
+	padding:0;
+	margin-top:0px;
+}
+nav{  
+ height:100px;
+ background-color:#223d77;
+		width:100%;
+		display:flex;
+		align-items:center;
+		justify-content:space-between;
+		padding:0px 0px;
+}
+nav img{
+		width:10%;
+	}
+nav ul li{
+		display:inline-block;
+	font-weight:bold;
+	width:150px;
+	text-align:center;
+}
+nav ul li:hover{
+background-color:#ede215;
+padding:5px;
+cursor:pointer;
+}
+
+nav ul li a{
+	color:white;
+	text-decoration:none;
+	
+}
+nav form{
+	width:20%;
+float:right;
+padding-right:100px;	
+}
+nav input{
+	border-radius:10px;
+	height:30px;
+}
+
+#sec2{
+	background-color:#ede215;
+	height:100px;
+	text-align:center;
+	padding-top:20px;
+	font-size:20px;
+	}
+#sec1{
+width:500px;
+height:500px;
+margin-left:40px
+
+
+}
+#sec1 label{
+font-size:20px;
+}
+
+
+#name,#phone,#address,#email{
+display:inline-block;
+width:300px;
+height:50px;
+}
+#send{
+width:200px;
+height:45px;
+border-radius:25px;
+font-size:20px;
+background-color:#ede215;
+
+}
+
+	#sec7 {
+	height:800px;
+	color:white;
+	width:100%; 
+	background-color:#223d77;	
+}
+#sec7 article{
+	width:10%;
+	display:inline-block;
+	margin: 150px 100px 100px 100px;
+	padding:5px 0px 5px 5px;
+	
+}
+#sec7 h1{
+	font-size:21px;
+	
+}
+#sec7 p{
+	font-size:25px;
+}
+	
+footer{
+	width:100%;
+	height:120px;
+	text-align:center;
+}
+footer ol li{
+	display:inline-block;
+	font-weight:bold;
+	font-size:20px;
+	width:150px;
+	text-align:center;
+}
+footer p{
+	text-align:center;
+}
+
+
+</style>
+</head>
+<body>
+<div class="header"> 
+
+
+	
+	<nav > <img src="images\logo.png">
+
+	<ul>
+	<li><a href="index.html"> HOME </a> </li>
+	<li><a href="about.html">ABOUT </a></li>
+	<li> <a href="contact.html"> CONTACT US </a> </li>
+	
+	<form><input type="text" placeholder="Search">
+	</form>
+	</nav>
+	
+	<section id="sec2">
+	<h1>CONTACT US</h1>
+	</div>
+	<div>
+	
+<section id="sec1">
+<form class="form">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <span id="nameError" class="error"></span><br>
+
+    <label for="phone">Phone Number:</label><br>
+    <input type="text" id="phone" name="phone"><br>
+    <span id="phoneError" class="error"></span><br>
+
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="email"><br>
+    <span id="emailError" class="error"></span><br>
+
+    <label for="address">Address:</label><br>
+    <input type="text" id="address" name="address"><br>
+    <span id="addressError" class="error"></span><br>
+
+    <input type="submit" value="send" id="send">
+</form>
+</section>
+<div>
+	<section id="sec7">
+				   <div><article><div><h1> INFORMATION </h1><p> There are many variations of passages of Lorem Ipsum available,
+				   but the majority have suffered alteration in some form, by injected humour, or 
+				   randomised words which don't look even slightly believable </p></div ></article>		
+		           
+				   <article> <div><h1> MY ACCOUNT </h1><p> There are many variations of passages of Lorem Ipsum available,
+				   but the majority have suffered alteration in some form, by injected humour, or 
+				   randomised words which don't look even slightly believable </div></p> </article>		
+				  
+				  <article><div> <h1> ABOUT </h1><p> There are many variations of passages of Lorem Ipsum available,
+				   but the majority have suffered alteration in some form, by injected humour, or 
+				   randomised words which don't look even slightly believable </p> </div></article>	
+                  
+				 <article><div><h1>CONTACTS</h1><p> There are many variations of passages of Lorem Ipsum available,
+				   but the majority have suffered alteration in some form, by injected humour, or 
+				   randomised words which don't look even slightly believable </p>  </div></article></div>	
+
+                   </section>
+		
+
+		</div>		   
+		
+<div>		
+		<footer>
+		<ol>
+			<li>Home</li>
+			<li>Delivery</li>
+			<li>Service</li>
+			<li>Forum</li>
+			<li>About Us</li>
+			<li>Contact Us</li>
+		</ol>
+		<p> &copy; 2023 ROMOFYI |<a href> All Rights Reserved</a></p>
+											 </footer>
+	
+	
+
+
+
+
+
+</div>
+
+<script>
+document.getElementById('validationForm').addEventListener('submit', function(e) {
+    e.preventDefault(); 
+
+    const nameRegex = /^[a-zA-Z\s]+$/;
+    const phoneRegex = /^\d{10}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const addressRegex = /^[a-zA-Z0-9\s,.'-]{3,}$/;
+
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const address = document.getElementById('address').value;
+
+    const errors = {
+        nameError: '',
+        phoneError: '',
+        emailError: '',
+        addressError: ''
+    };
+
+    
+    if (!name.match(nameRegex)) {
+        errors.nameError = 'Name must contain only letters and spaces';
+    }
+    if (!phone.match(phoneRegex)) {
+        errors.phoneError = 'Invalid phone number';
+    }
+    if (!email.match(emailRegex)) {
+        errors.emailError = 'Invalid email address';
+    }
+    if (!address.match(addressRegex)) {
+        errors.addressError = 'Invalid address';
+    }
+
+    // Display errors
+    document.getElementById('nameError').textContent = errors.nameError;
+    document.getElementById('phoneError').textContent = errors.phoneError;
+    document.getElementById('emailError').textContent = errors.emailError;
+    document.getElementById('addressError').textContent = errors.addressError;
+
+    // If no errors, submit the form
+    if (Object.values(errors).every(error => error === '')) {
+        this.submit();
+    }
+});
+</script>
+
+</body>
+</html>
